@@ -3,64 +3,178 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mike’s Drone Solutions</title>
+  <title>Avia Visual</title>
   <style>
+    :root {
+      --bg-dark: #120c08;
+      --bg-mid: #24150d;
+      --panel: #2e1b12;
+      --panel-light: #3c2418;
+      --text-main: #f5e7d3;
+      --text-soft: #d7bfa3;
+      --accent: #d86a18;
+      --accent-light: #f0a34a;
+      --accent-deep: #8e3d0a;
+      --border: rgba(240, 163, 74, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: white;
+      background:
+        radial-gradient(circle at top, rgba(216, 106, 24, 0.18), transparent 35%),
+        linear-gradient(180deg, #1a100b 0%, #120c08 100%);
+      color: var(--text-main);
     }
 
     header {
-      padding: 80px 20px;
+      padding: 90px 20px 80px;
       text-align: center;
-      background: linear-gradient(to right, #111827, #1f2937);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.45)),
+        linear-gradient(135deg, #2a160d 0%, #4b240f 45%, #1a100b 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .logo-mark {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--accent-light);
+      letter-spacing: 2px;
+      font-size: 12px;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.03);
     }
 
     h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
+      font-size: 54px;
+      margin: 0 0 14px;
+      letter-spacing: 1px;
+      color: var(--text-main);
     }
 
-    p {
-      font-size: 18px;
-      color: #cbd5e1;
+    .hero-subtext {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 19px;
+      line-height: 1.6;
+      color: var(--text-soft);
     }
 
     .btn {
-      margin-top: 20px;
-      padding: 12px 20px;
-      background: #38bdf8;
-      color: black;
+      display: inline-block;
+      margin-top: 28px;
+      padding: 14px 24px;
+      background: linear-gradient(135deg, var(--accent-light), var(--accent));
+      color: #1a100b;
+      text-decoration: none;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
       font-weight: bold;
+      box-shadow: 0 10px 30px rgba(216, 106, 24, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgba(216, 106, 24, 0.35);
     }
 
     section {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: auto;
+      padding: 70px 20px;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 34px;
+      margin: 0 0 14px;
+      color: var(--text-main);
+    }
+
+    .section-intro {
+      max-width: 700px;
+      color: var(--text-soft);
+      line-height: 1.7;
+      margin-bottom: 34px;
+      font-size: 17px;
     }
 
     .services {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
     }
 
     .card {
-      background: #1e293b;
-      padding: 20px;
-      border-radius: 10px;
+      background: linear-gradient(180deg, rgba(60, 36, 24, 0.95), rgba(34, 20, 13, 0.98));
+      padding: 24px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: var(--accent-light);
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--text-soft);
+    }
+
+    .service-area {
+      background: linear-gradient(180deg, rgba(216, 106, 24, 0.08), rgba(216, 106, 24, 0.02));
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .service-area p,
+    footer p {
+      color: var(--text-soft);
+      line-height: 1.7;
+      font-size: 17px;
     }
 
     footer {
       text-align: center;
-      padding: 30px;
-      color: #94a3b8;
+      padding: 36px 20px 50px;
+      color: #b89876;
+      background: #100906;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 40px;
+      }
+
+      .hero-subtext {
+        font-size: 17px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
     }
   </style>
 </head>
@@ -68,28 +182,66 @@
 <body>
 
   <header>
-    <h1>Mike’s Drone Solutions</h1>
-    <p>Professional Drone Photography & Aerial Services in Washington County, Utah</p>
-    <button class="btn">Get a Free Quote</button>
+    <div class="hero-wrap">
+      <div class="logo-mark">Avia Visual</div>
+      <h1>Professional Drone Services with a Desert Edge</h1>
+      <p class="hero-subtext">
+        Aerial photography, drone inspections, real estate media, construction progress tracking,
+        and mapping services in Washington County, Utah.
+      </p>
+      <a href="mailto:your@email.com" class="btn">Get a Free Quote</a>
+    </div>
   </header>
 
   <section>
-    <h2>Services</h2>
-    <div class="services">
-      <div class="card">Real Estate Photography</div>
-      <div class="card">Roof Inspections</div>
-      <div class="card">Aerial Video</div>
-      <div class="card">Construction Progress</div>
+    <div class="container">
+      <h2>Services</h2>
+      <p class="section-intro">
+        Avia Visual provides high-quality aerial imagery and drone-based visual solutions
+        for real estate, construction, commercial projects, and property documentation.
+      </p>
+
+      <div class="services">
+        <div class="card">
+          <h3>Aerial Photography</h3>
+          <p>Capture striking overhead images that showcase properties, land, and projects from a professional perspective.</p>
+        </div>
+
+        <div class="card">
+          <h3>Drone Inspections</h3>
+          <p>Document roofs and hard-to-access structures efficiently with detailed aerial visuals.</p>
+        </div>
+
+        <div class="card">
+          <h3>Real Estate Media</h3>
+          <p>Create polished listing content that helps homes, developments, and commercial properties stand out.</p>
+        </div>
+
+        <div class="card">
+          <h3>Construction Progress</h3>
+          <p>Track jobsite development over time with consistent aerial updates for builders, owners, and stakeholders.</p>
+        </div>
+
+        <div class="card">
+          <h3>Mapping Services</h3>
+          <p>Provide visual site coverage and drone-collected imagery to support planning, documentation, and project review.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2>Service Area</h2>
-    <p>Serving St. George, Santa Clara, Ivins, Washington City, and Hurricane, Utah.</p>
+  <section class="service-area">
+    <div class="container">
+      <h2>Service Area</h2>
+      <p>
+        Serving St. George, Santa Clara, Ivins, Washington City, Hurricane,
+        and surrounding areas in Southern Utah.
+      </p>
+    </div>
   </section>
 
   <footer>
-    © 2026 Mike’s Drone Solutions
+    <p>© 2026 Avia Visual</p>
   </footer>
 
 </body>
